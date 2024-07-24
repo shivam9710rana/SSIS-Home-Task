@@ -1,0 +1,3374 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/23/2024 1:41:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SHIVAM"
+  DTS:CreatorName="SHIVAM\Reet"
+  DTS:DTSID="{F74682E3-C010-460A-9744-CE177D0E4D09}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{703E8C8A-E0E2-4C22-86EC-B495FBBFBE1B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV File Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B590BEC8-BD28-4BC1-891A-526B511451D0}"
+      DTS:ObjectName="CSV File Connection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Var_CsvFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\shiva\OneDrive\Documents\KORE Software\SSIS Home Task\Source_Data\sourcefile.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UserID"
+              DTS:DTSID="{26EA8861-8A76-41D5-BC08-993D7EC4003A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FullName"
+              DTS:DTSID="{9063819A-19C8-4067-B599-783A4626CF27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{EADD1DE9-C4BE-42D1-AC81-643175C1AC42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{60E442AC-1439-47E3-9EFC-AFD216C61E2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{2E73CB1F-4619-45AF-9480-74C94C9E251E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastLoginDate"
+              DTS:DTSID="{E67250CC-43F2-4FDB-BD1D-829051398578}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PurchaseTotal"
+              DTS:DTSID="{A5FF1A68-6154-4FF0-A50E-CB55565E90E2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Db Connection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+      DTS:ObjectName="Db Connection">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[User::Var_DatabaseName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::Var_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Shivam\ECE9017;Initial Catalog=KoreAssignment_Shivam_Rana;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{A29F753A-B649-4C92-9562-53777CFF7A46}Shivam\ECE9017.KoreAssignment_Shivam_Rana;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{37BA0D9E-F8B9-47A6-ADB4-887DA8A4FA3B}"
+      DTS:ObjectName="CsvFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\shiva\OneDrive\Documents\KORE Software\SSIS Home Task\Source_Data\sourcefile.csv</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8A9DA436-4473-4600-9263-50167A34B2FC}"
+      DTS:ObjectName="DatabaseName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">KoreAssignment_Shivam_Rana</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FBEDD913-5D35-4D5C-96EA-0466CBC18CB5}"
+      DTS:ObjectName="ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Shivam\ECE9017</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D36AE9A8-E232-481F-BCFF-D458B4BC43AB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{132E1A9A-994C-4893-820A-E1696CF9C955}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::CsvFilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_CsvFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\shiva\OneDrive\Documents\KORE Software\SSIS Home Task\Source_Data\sourcefile.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D432A0AF-503A-41BF-AC2B-FD46DAC72ED0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::DatabaseName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_DatabaseName">
+      <DTS:VariableValue
+        DTS:DataType="8">KoreAssignment_Shivam_Rana</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9234988B-4C36-45BF-847A-A337ACB34958}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ServerName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_ServerName">
+      <DTS:VariableValue
+        DTS:DataType="8">Shivam\ECE9017</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SQ_SSIS_HomeTask"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{912210DC-876F-4444-9AAE-7FA8503AE40C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQ_SSIS_HomeTask">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E8EF3022-A8C0-488B-AEF9-BE8082541886}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_ProdTbl_Load"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+UserID
+from
+prod.Users</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+UserID
+from
+prod.Users) [refTable]
+where [refTable].[UserID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UserID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Db Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Db Connection]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input].Columns[UserID]"
+                          cachedDataType="i4"
+                          cachedName="UserID"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">UserID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ProductionTbl"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[prod].[Users]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Db Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Db Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[UserID]"
+                          cachedDataType="i4"
+                          cachedName="UserID"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[FullName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FullName"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[FullName]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[Age]"
+                          cachedDataType="i4"
+                          cachedName="Age"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Age]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[Email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Email"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                          cachedDataType="dbDate"
+                          cachedName="RegistrationDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[RegistrationDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[LastLoginDate]"
+                          cachedDataType="dbDate"
+                          cachedName="LastLoginDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[LastLoginDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].Columns[PurchaseTotal]"
+                          cachedDataType="r8"
+                          cachedName="PurchaseTotal"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[PurchaseTotal]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                          dataType="i4"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FullName" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                          dataType="i4"
+                          name="Age" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="dbDate"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                          dataType="dbDate"
+                          name="LastLoginDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                          dataType="r8"
+                          name="PurchaseTotal" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input].ExternalColumns[RecordLastUpdated]"
+                          dataType="dbTimeStamp"
+                          name="RecordLastUpdated" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="StagingTbl"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Users]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Db Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Db Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[StgID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[StgID]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[StgID]"
+                          name="StgID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[UserID]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]"
+                          name="UserID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[FullName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[FullName]"
+                          name="FullName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Age]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Age]"
+                          name="Age"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[RegistrationDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[RegistrationDate]"
+                          name="RegistrationDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[LastLoginDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[LastLoginDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[LastLoginDate]"
+                          name="LastLoginDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[PurchaseTotal]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTotal]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[PurchaseTotal]"
+                          name="PurchaseTotal"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[StgID]"
+                          dataType="i4"
+                          name="StgID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[UserID]"
+                          dataType="i4"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FullName" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                          dataType="i4"
+                          name="Age" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[RegistrationDate]"
+                          dataType="dbDate"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[LastLoginDate]"
+                          dataType="dbDate"
+                          name="LastLoginDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].ExternalColumns[PurchaseTotal]"
+                          dataType="r8"
+                          name="PurchaseTotal" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[StgID]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[StgID]"
+                          name="StgID" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[UserID]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[UserID]"
+                          name="UserID" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                          name="FullName" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[Age]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[Age]"
+                          name="Age" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          name="Email" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[RegistrationDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[RegistrationDate]"
+                          name="RegistrationDate" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[LastLoginDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[LastLoginDate]"
+                          name="LastLoginDate" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[PurchaseTotal]"
+                          dataType="r8"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[PurchaseTotal]"
+                          name="PurchaseTotal" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Updating existing records"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [dbo].[usp_UpdateAndLog] ?,?,?,?,?,?,?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Db Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Db Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[FullName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FullName"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@FullName]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[FullName]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[Age]"
+                          cachedDataType="i4"
+                          cachedName="Age"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@Age]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Age]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[Email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Email"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@Email]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[RegistrationDate]"
+                          cachedDataType="dbDate"
+                          cachedName="RegistrationDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@RegistrationDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[RegistrationDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[LastLoginDate]"
+                          cachedDataType="dbDate"
+                          cachedName="LastLoginDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@LastLoginDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[LastLoginDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[PurchaseTotal]"
+                          cachedDataType="r8"
+                          cachedName="PurchaseTotal"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@PurchaseTotal]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[PurchaseTotal]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].Columns[UserID]"
+                          cachedDataType="i4"
+                          cachedName="UserID"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@UserID]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output].Columns[UserID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@FullName]"
+                          dataType="wstr"
+                          length="255"
+                          name="@FullName">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@Age]"
+                          dataType="i4"
+                          name="@Age">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="@Email">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@RegistrationDate]"
+                          dataType="dbDate"
+                          name="@RegistrationDate">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@LastLoginDate]"
+                          dataType="dbDate"
+                          name="@LastLoginDate">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@PurchaseTotal]"
+                          dataType="r8"
+                          name="@PurchaseTotal">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input].ExternalColumns[@UserID]"
+                          dataType="i4"
+                          name="@UserID">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup Match Output]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]"
+                  name="Lookup Match Output"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup No Match Output]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[OLE DB Source Output]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6D55E9E5-2097-4830-9448-687D1161A924}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_StagingTbl_Load"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input].Columns[UserID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="UserID"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[UserID]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input].Columns[FullName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="FullName"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[FullName]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Email"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input].Columns[PurchaseTotal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="PurchaseTotal"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[PurchaseTotal]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UserID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UserID]"
+                          name="Copy of UserID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[UserID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FullName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FullName]"
+                          name="Copy of FullName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[FullName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]"
+                          name="Copy of Email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Email]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PurchaseTotal]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PurchaseTotal]"
+                          name="Copy of PurchaseTotal"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[PurchaseTotal]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Data_Source_File"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CSV File Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[CSV File Connection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[UserID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[UserID]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[UserID]"
+                          name="UserID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[FullName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[FullName]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[FullName]"
+                          name="FullName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Age]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Age]"
+                          name="Age"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[PurchaseTotal]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[PurchaseTotal]"
+                          name="PurchaseTotal"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                          name="RegistrationDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[LastLoginDate]"
+                          length="50"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                          name="LastLoginDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[UserID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[FullName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="FullName" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[Age]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Age" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[LastLoginDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LastLoginDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].ExternalColumns[PurchaseTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="PurchaseTotal" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Users]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Db Connection]"
+                      connectionManagerRefId="Package.ConnectionManagers[Db Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of UserID]"
+                          cachedDataType="i4"
+                          cachedName="Copy of UserID"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UserID]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of FullName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Copy of FullName"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FullName]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of PurchaseTotal]"
+                          cachedDataType="r4"
+                          cachedName="Copy of PurchaseTotal"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PurchaseTotal]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Copy of Email"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Email]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewRegistrationDate]"
+                          cachedDataType="date"
+                          cachedName="NewRegistrationDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewRegistrationDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewLastLoginDate]"
+                          cachedDataType="date"
+                          cachedName="NewLastLoginDate"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewLastLoginDate]" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewAge]"
+                          cachedDataType="i4"
+                          cachedName="NewAge"
+                          externalMetadataColumnId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewAge]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StgID]"
+                          dataType="i4"
+                          name="StgID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserID]"
+                          dataType="i4"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FullName" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                          dataType="i4"
+                          name="Age" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="dbDate"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastLoginDate]"
+                          dataType="dbDate"
+                          name="LastLoginDate" />
+                        <externalMetadataColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseTotal]"
+                          dataType="r8"
+                          name="PurchaseTotal" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+                  description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+                  name="SC_Data_Formatting"
+                  version="13">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Stores the source code of the component"
+                      isArray="true"
+                      name="SourceCode"
+                      state="cdata">
+                      <arrayElements
+                        arrayElementCount="30">
+                        <arrayElement
+                          dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using System.Globalization;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+
+        // Define the expected date formats based on the source data
+        string[] inputFormats = { "dd/MM/yyyy", "yyyy-MM-dd" };
+
+        // handling "AGE" col
+        // handling the incorrect format and null/"" values for the 'Age' col
+        
+        int age;
+        if (string.IsNullOrEmpty(Row.Age) || !int.TryParse(Row.Age, out age))
+        {
+            Row.AgeFlag = true;
+        }
+        else
+        {
+            Row.NewAge = age;
+            Row.AgeFlag = false;
+        }
+
+        // handling "REGISTRATION DATE" col
+        // handling the incorrect format and null/"" values for the 'RegistrationDate' col
+        string registrationDateValue = Row.RegistrationDate;
+
+        // Declared a nullable DateTime variable for the parsed date
+        DateTime? parsedRegistrationDate = null;
+
+        // Define the expected date formats based on the source data
+
+        // Parsed the date using the dateformats to check the correctness
+        bool isParsed1 = DateTime.TryParseExact(
+            registrationDateValue,
+            inputFormats,
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None,
+            out DateTime tempDate
+        );
+
+        if (isParsed1)
+        {
+            // If parsing is successful, date is assigned to the output and flag to false
+            parsedRegistrationDate = tempDate;
+            Row.NewRegistrationDate = parsedRegistrationDate.Value;
+            Row.RegistrationDateFlag = false;
+        }
+        else
+        {
+            // If parsing fails, set the flag to true
+            Row.RegistrationDateFlag = true;
+        }
+
+        // handling "LASTLOGIN DATE" col
+        // handling the incorrect format and null/"" values for the 'LastLoginDate' col
+        string LastLoginDateValue = Row.LastLoginDate;
+
+        // Declared a nullable DateTime variable for the parsed date
+        DateTime? parsedLastLoginDate = null;
+
+        // Parsed the date using the dateformats to check the correctness
+        bool isParsed2 = DateTime.TryParseExact(
+            LastLoginDateValue,
+            inputFormats,
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None,
+            out DateTime tempLastLoginDate
+        );
+
+        // checks if the date is future date or too old
+        if (tempLastLoginDate > DateTime.Now || tempLastLoginDate < new DateTime(2000, 1, 1))
+        {
+            // Set the output to NULL if the date is out of above range
+            Row.LastLoginDateFlag = true;
+        }
+        if (isParsed2)
+        {
+            // If parsing is successful, assign the date to the output and flag to false
+            parsedLastLoginDate = tempLastLoginDate;
+            Row.NewLastLoginDate = parsedLastLoginDate.Value;
+            Row.LastLoginDateFlag = false;
+        }
+        else
+        {
+            // If parsing fails, set the flag to true
+            Row.LastLoginDateFlag = true;
+        }
+
+    }
+
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String Age
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool Age_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String RegistrationDate
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool RegistrationDate_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String LastLoginDate
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool LastLoginDate_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Int32 NewAge
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool NewAge_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Boolean AgeFlag
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool AgeFlag_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Boolean RegistrationDateFlag
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool RegistrationDateFlag_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public DateTime NewRegistrationDate
+    {
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool NewRegistrationDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public DateTime NewLastLoginDate
+    {
+        set
+        {
+            this[7] = value;
+        }
+    }
+    public bool NewLastLoginDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(7);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Boolean LastLoginDateFlag
+    {
+        set
+        {
+            this[8] = value;
+        }
+    }
+    public bool LastLoginDateFlag_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(8);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Settings.get_Default():SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Sett" +
+    "ings")]
+
+namespace SC_e7a0c43eede744b2a8c45dcd390952fb.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_e7a0c43eede744b2a8c45dcd390952fb.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_e7a0c43eede744b2a8c45dcd390952fb.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Project]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_e7a0c43eede744b2a8c45dcd390952fb</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_e7a0c43eede744b2a8c45dcd390952fb</msb:DisplayName>
+    <msb:ProjectId>{76161F9A-879E-415D-81E3-4A156A4CD3EE}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_e7a0c43eede744b2a8c45dcd390952fb.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_e7a0c43eede744b2a8c45dcd390952fb")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_e7a0c43eede744b2a8c45dcd390952fb")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[SC_e7a0c43eede744b2a8c45dcd390952fb.csproj]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97C43D76-381D-4771-9835-51398A3FB837}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_e7a0c43eede744b2a8c45dcd390952fb</RootNamespace>
+    <AssemblyName>SC_e7a0c43eede744b2a8c45dcd390952fb</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                      </arrayElements>
+                    </property>
+                    <property
+                      dataType="System.String"
+                      description="Stores the binary representation of the component"
+                      isArray="true"
+                      name="BinaryCode"
+                      state="cdata">
+                      <arrayElements
+                        arrayElementCount="2">
+                        <arrayElement
+                          dataType="System.String"><![CDATA[SC_e7a0c43eede744b2a8c45dcd390952fb.dll]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDADrooGYAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAAijkA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAADg5AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAkBkAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABs
+OQAAAAAAAEgAAAACAAUABCQAAHwUAAABAAAAAAAAAIA4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAUA+wAAAAEAABEYjRwAAAEl
+FnIBAABwoiUXchcAAHCiCgNvBgAABigSAAAKLQ8DbwYAAAYSASgTAAAKLQkDF28UAAAGKw4DB28S
+AAAGAxZvFAAABgNvCgAABhIC/hUBAAAbBigUAAAKFhIDKBUAAAosHhICCSgWAAAKAxICKBcAAApv
+GAAABgMWbxYAAAYrBwMXbxYAAAYDbw4AAAYSBP4VAQAAGwYoFAAAChYSBSgVAAAKEQUoGAAACigZ
+AAAKLRURBSDQBwAAFxdzGgAACigbAAAKLAcDF28cAAAGLB4SBBEFKBYAAAoDEgQoFwAACm8aAAAG
+AxZvHAAABioDF28cAAAGKh4CKCAAAAYqKgIDBAUoHAAACipSAnsdAAAKAnseAAAKFpRvHwAACiom
+AhYDKCAAAAoqIgIWKCEAAAoqWgMsCAIWKCIAAAoqci0AAHBzIwAACnpSAnsdAAAKAnseAAAKF5Rv
+HwAACiomAhcDKCAAAAoqIgIXKCEAAAoqWgMsCAIXKCIAAAoqci0AAHBzIwAACnpSAnsdAAAKAnse
+AAAKGJRvHwAACiomAhgDKCAAAAoqIgIYKCEAAAoqWgMsCAIYKCIAAAoqci0AAHBzIwAACno6AhkD
+jB0AAAEoIAAACipaAywIAhkoIgAACipyLQAAcHMjAAAKejoCGgOMIQAAASggAAAKKloDLAgCGigi
+AAAKKnItAABwcyMAAAp6OgIbA4whAAABKCAAAAoqWgMsCAIbKCIAAAoqci0AAHBzIwAACno6AhwD
+jA8AAAEoIAAACipaAywIAhwoIgAACipyLQAAcHMjAAAKejoCHQOMDwAAASggAAAKKloDLAgCHSgi
+AAAKKnItAABwcyMAAAp6OgIeA4whAAABKCAAAAoqWgMsCAIeKCIAAAoqci0AAHBzIwAACnoeAigk
+AAAKKh4CKCUAAAoqfgIoJgAACgICcyQAAAZ9AQAABAICcyUAAAZ9AgAABCqSBHLKAABwGm8nAAAK
+LBUCBQIDKCgAAAoOBHMFAAAGbyIAAAYqSisHAgNvIwAABgNvHgAABi3xKgYqOgIoKQAACgIDfQMA
+AAQqOgIoKQAACgIDfQQAAAQqHgIoKQAACiqufgUAAAQtHnLaAABw0AcAAAIoKgAACm8rAAAKcywA
+AAqABQAABH4FAAAEKhp+BgAABCoeAoAGAAAEKhp+BwAABCoeAigtAAAKKi5zKwAABoAHAAAEKgAA
+AEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAABQIAAAjfgAAgAgAAJQIAAAjU3Ry
+aW5ncwAAAAAUEQAATAEAACNVUwBgEgAAEAAAACNHVUlEAAAAcBIAAAwCAAAjQmxvYgAAAAAAAAAC
+AAABVxWiCQkBAAAA+gEzABYAAAEAAAAlAAAACAAAAAcAAAAsAAAAHwAAAC0AAAAQAAAAAQAAAAMA
+AAAVAAAAHAAAAAEAAAABAAAABAAAAAEAAAAAAAAEAQAAAAAABgCyApcGBgBGA5cGBgD+AYQGDwAL
+BwAABgArAskFBgCVAskFBgB2AskFBgAtA8kFBgDSAskFBgDrAskFBgBCAskFBgBdAsYDCgAGA7IA
+BgABAF4FBgCpAF4FCgBWBrIADgBHBrIACgASBrIACgDuB7IABgCxB14FBgDhAYQGBgBnBrcGBgAG
+BrQFEgCxAeoDEgASAuoDEgAVAZ8FBgDGAZcGBgDjA14FBgAMAF4FBgAqBl4FBgBTB7QFBgDbBV4F
+BgBxBV4FBgD1BV4FBgDTAF4FBgB7AF4FBgB7CMkFAAAAABIAAAAAAAEAAQABABAAlAUAABAAAQAB
+AAEAEAA6BgAAQQABAAUAAQAQANAHAABNAAEAIAABABAAlwcAAFEAAwAkAAEAEABJBwAAUQAEACUA
+AAAQAL4GGgdRAAUAJgAAARAAhwcaB2kABwAqAAYAlwfTAAYASQfXAAEA3gfbAAEA3gfbABEAZQXf
+ABEA8ADjABEAUADnAFAgAAAAAMYAZAMGAAEAWCAAAAAAxgBvAwYAAQBgIAAAAADGAFgI6wABAGch
+AAAAAIYYdwYGAAIAbyEAAAAAhhh3BnYAAgB6IQAAAACGCGAA8QAFAI8hAAAAAIYIaAAQAAUAmSEA
+AAAAhggoBJgABgCiIQAAAACGCDcE9QAGALkhAAAAAIYIbwHxAAcAziEAAAAAhgiEARAABwDYIQAA
+AACGCKYEmAAIAOEhAAAAAIYIwgT1AAgA+CEAAAAAhgg2AfEACQANIgAAAACGCEgBEAAJABciAAAA
+AIYIWASYAAoAICIAAAAAhghxBPUACgA3IgAAAACGCHAAAQALAEYiAAAAAIYIRgT1AAwAXSIAAAAA
+hgiLA/UADQBsIgAAAACGCP0E9QAOAIMiAAAAAIYIrQP1AA8AkiIAAAAAhggtBfUAEACpIgAAAACG
+CJkB+gARALgiAAAAAIYI3gT1ABIAzyIAAAAAhghaAfoAEwDeIgAAAACGCIoE9QAUAPUiAAAAAIYI
+lwP1ABUABCMAAAAAhggQBfUAFgAbIwAAAACGAG8ImAAXACMjAAAAAIYAuAeYABcAKyMAAAAAhhh3
+BgYAFwBLIwAAAADGAEMIAAEXAHAjAAAAAMYBPAjrABsAgyMAAAAAxgFYCOsAHACFIwAAAACGGHcG
+CgEdAJQjAAAAAIYYdwYKAR4AoyMAAAAAgxh3BgYAHwCrIwAAAACTCGMGEAEfANcjAAAAAJMI2ABE
+AB8A3iMAAAAAkwjkABUBHwDmIwAAAACWCMQHGwEgAO0jAAAAAIYYdwYGACAA9SMAAAAAkRh9BiAB
+IAAAAAEAcwgAAAEAXAYAAAIAYgcAAAMAIAYAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMA
+AAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEA
+hQMAAAEAhQMAAAEAhQMAAAEAhQMAAAEAGwAAAAIAnwAAAAMAXAYAAAQAIAYAAAEAXAYAAAEAcwgA
+AAEA9AcAAAEA9AcAAAEAhQMJAHcGAQARAHcGBgAZAHcGCgApAHcGEAAxAHcGEAA5AHcGEABBAHcG
+EABJAHcGEABRAHcGEABZAHcGEABhAHcGEABpAHcGBgCpAHcGBgDJAHcGFQDZAHcGBgCZAGQDBgCZ
+AG8DBgDhAIQIMQDpAC0BNgC5AAABRAB5AKMHSQAMAHcGVwAMAHsDXQB5AFAIYgB5AHkFZwB5AHcG
+bwB5AIgFZwCBAHcGdgCBAFwGgACBAGIHhACJAOADiACBAFUFjQCBAEYFkwCBAE0FAQABAXcGEACB
+AG8ImACBALgHmACZAHcGBgDhAJAHnACZAHYHpAChAHcGBgAZAY0AqgAZAXcIswCxAHcGuQDRAHcG
+BgAuAAsARAEuABMATQEuABsAbAEuACMAdQEuACsAngEuADMAngEuADsAngEuAEMAdQEuAEsApAEu
+AFMAngEuAFsAuwFDAGMABQLhAHsABQLjAGsABQJpAnMAbAGJAnMAbAEbAAMAAQAHABMACAAVAAAA
+dwAkAQAATQQoAQAAoAEkAQAA5QQoAQAAYQEkAQAAkQQoAQAAdAAsAQAASgQoAQAAjwMoAQAAAQUo
+AQAAsQMoAQAAMQUoAQAAnQEwAQAA4gQoAQAAXgEwAQAAjgQoAQAAmwMoAQAAFAUoAQAAZwY1AQAA
+DQE6AQAAyAc/AQIABgADAAEABwADAAIACAAFAAEACQAFAAIACgAHAAEACwAHAAIADAAJAAEADQAJ
+AAIADgALAAEADwALAAIAEAANAAEAEQANAAEAEgAPAAEAEwARAAEAFAATAAEAFQAVAAEAFgAXAAEA
+FwAZAAEAGAAbAAEAGQAdAAEAGgAfAAEAGwAhAAEAHAAjAAEAHQAlAAIAJwAnAAIAKAApAAEAKQAp
+AAIAKgArAD0ABIAAAAEAAAAAAAAAAAAAAAAAIwAAAAQAAAAAAAAAAAAAAMEARwAAAAAAEAAAAAAA
+AAAAAAAAygD+BwAAAAAQAAAAAAAAAAAAAADKABsIAAAAAAQAAAAAAAAAAAAAAMEAXgUAAAAAAAAA
+AAEAAADIBgAAAAAATnVsbGFibGVgMQBJbnQzMgA8TW9kdWxlPgBJbnB1dElEAFNDX2U3YTBjNDNl
+ZWRlNzQ0YjJhOGM0NWRjZDM5MDk1MmZiAG1zY29ybGliAGRlZmF1bHRJbnN0YW5jZQBnZXRfQWdl
+AHNldF9BZ2UAc2V0X05ld0FnZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBJ
+bnB1dE5hbWUARGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBn
+ZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAZ2V0X0ludmFyaWFudEN1bHR1
+cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAVHJ5UGFyc2UAZ2V0X0xhc3RMb2dpbkRhdGUAc2V0
+X0xhc3RMb2dpbkRhdGUAc2V0X05ld0xhc3RMb2dpbkRhdGUAZ2V0X1JlZ2lzdHJhdGlvbkRhdGUA
+c2V0X1JlZ2lzdHJhdGlvbkRhdGUAc2V0X05ld1JlZ2lzdHJhdGlvbkRhdGUARWRpdG9yQnJvd3Nh
+YmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0
+dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3Nl
+bWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1l
+d29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNj
+cmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5
+UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0Q29t
+cG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGlt
+ZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQBnZXRfVmFsdWUA
+dmFsdWUAc2V0X0FnZUZsYWcAc2V0X0xhc3RMb2dpbkRhdGVGbGFnAHNldF9SZWdpc3RyYXRpb25E
+YXRlRmxhZwBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAEdldFN0cmluZwBTeXN0ZW0uQ29tcG9u
+ZW50TW9kZWwAU0NfZTdhMGM0M2VlZGU3NDRiMmE4YzQ1ZGNkMzkwOTUyZmIuZGxsAGdldF9BZ2Vf
+SXNOdWxsAHNldF9BZ2VfSXNOdWxsAHNldF9OZXdBZ2VfSXNOdWxsAGdldF9MYXN0TG9naW5EYXRl
+X0lzTnVsbABzZXRfTGFzdExvZ2luRGF0ZV9Jc051bGwAc2V0X05ld0xhc3RMb2dpbkRhdGVfSXNO
+dWxsAGdldF9SZWdpc3RyYXRpb25EYXRlX0lzTnVsbABzZXRfUmVnaXN0cmF0aW9uRGF0ZV9Jc051
+bGwAc2V0X05ld1JlZ2lzdHJhdGlvbkRhdGVfSXNOdWxsAHNldF9BZ2VGbGFnX0lzTnVsbABzZXRf
+TGFzdExvZ2luRGF0ZUZsYWdfSXNOdWxsAHNldF9SZWdpc3RyYXRpb25EYXRlRmxhZ19Jc051bGwA
+U2V0TnVsbABzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4AQm9vbGVhbgBvcF9HcmVhdGVyVGhh
+bgBvcF9MZXNzVGhhbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9i
+YWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24AU3Ry
+aW5nQ29tcGFyaXNvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcABJRm9ybWF0
+UHJvdmlkZXIASW5wdXQwQnVmZmVyAFBpcGVsaW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVz
+b3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRp
+bWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDX2U3YTBjNDNlZWRlNzQ0YjJh
+OGM0NWRjZDM5MDk1MmZiLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdN
+b2RlcwBTQ19lN2EwYzQzZWVkZTc0NGIyYThjNDVkY2QzOTA5NTJmYi5Qcm9wZXJ0aWVzAFZhcmlh
+YmxlcwBEYXRlVGltZVN0eWxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMA
+U2V0dGluZ3MARXF1YWxzAENvbm5lY3Rpb25zAFRyeVBhcnNlRXhhY3QAT2JqZWN0AEVuZE9mUm93
+c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBv
+bmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlw
+ZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQAZ2V0X05vdwBJbnB1dDBfUHJvY2Vzc0lucHV0
+Um93AE5leHRSb3cAZ2V0X0Fzc2VtYmx5AElzTnVsbE9yRW1wdHkAAAAAFWQAZAAvAE0ATQAvAHkA
+eQB5AHkAABV5AHkAeQB5AC0ATQBNAC0AZABkAAGAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIA
+dAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBz
+AHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkA
+bgBzAHQAZQBhAGQALgAAD0kAbgBwAHUAdAAgADAAAHFTAEMAXwBlADcAYQAwAGMANAAzAGUAZQBk
+AGUANwA0ADQAYgAyAGEAOABjADQANQBkAGMAZAAzADkAMAA5ADUAMgBmAGIALgBQAHIAbwBwAGUA
+cgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAPv2poOgi1tBk8hBdTflHY0ABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEWEVBwYdDggVETkBET0RPRUROQERPRE9BAABAg4GAAICDhAIBhUROQER
+PQQAABJdDQAFAg4dDhJ5EX0QET0FIAEBEwAEIAATAAQAABE9BwACAhE9ET0GIAMBCAgICSADARJF
+HQgSSQMGEkUDBh0IBCABDggFIAIBCBwEIAECCAMgAAIHIAICDhGAiQUgAR0ICAgAARKAjRGAkQUg
+ABKAlQcgAgEOEoCVCLd6XFYZNOCJCImEXc2AgMyRAwYSFAMGEhgDBhJNAwYSWQMGEl0DBhIgBSAB
+ARIMAyAADgQgAQECBSABARE9CSAEAQgOEkUSSQUgAQESTQQAABJZBQABARJdBAAAEiADAAABAygA
+DgMoAAIDKAAIBCgAET0ECAASWQQIABJdBAgAEiAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNl
+cHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDX2U3YTBjNDNlZWRlNzQ0YjJhOGM0NWRjZDM5MDk1
+MmZiAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjQAAEkBABouTkVURnJhbWV3b3JrLFZlcnNp
+b249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEAAAAA
+ALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3Js
+aWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdh
+NWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAA
+AAAAUEFEUEFEULQAAABgOQAAAAAAAAAAAAB6OQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbDkA
+AAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABT
+AEMAXwBlADcAYQAwAGMANAAzAGUAZQBkAGUANwA0ADQAYgAyAGEAOABjADQANQBkAGMAZAAzADkA
+MAA5ADUAMgBmAGIAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAu
+ADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfAGUANwBhADAAYwA0ADMA
+ZQBlAGQAZQA3ADQANABiADIAYQA4AGMANAA1AGQAYwBkADMAOQAwADkANQAyAGYAYgAuAGQAbABs
+AAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQA
+IABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAA
+AAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AZQA3AGEA
+MABjADQAMwBlAGUAZABlADcANAA0AGIAMgBhADgAYwA0ADUAZABjAGQAMwA5ADAAOQA1ADIAZgBi
+AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfAGUANwBhADAA
+YwA0ADMAZQBlAGQAZQA3ADQANABiADIAYQA4AGMANAA1AGQAYwBkADMAOQAwADkANQAyAGYAYgAA
+ADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgA
+AQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAjDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                      </arrayElements>
+                    </property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                      name="VSTAProjectName"
+                      typeConverter="NOTBROWSABLE">SC_e7a0c43eede744b2a8c45dcd390952fb</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the programming language used by the script."
+                      name="ScriptLanguage"
+                      typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a comma-separated list of read-only variables."
+                      name="ReadOnlyVariables"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a comma-separated list of read/write variables."
+                      name="ReadWriteVariables"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                    <property
+                      dataType="System.String"
+                      description="List of breakpoints present on the script."
+                      isArray="true"
+                      name="BreakpointCollection"
+                      typeConverter="NOTBROWSABLE">
+                      <arrayElements
+                        arrayElementCount="0" />
+                    </property>
+                    <property
+                      dataType="System.String"
+                      description="Checksum to match component metedata against compiled codes."
+                      name="MetadataChecksum140"
+                      typeConverter="NOTBROWSABLE">2F</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0]"
+                      hasSideEffects="true"
+                      name="Input 0">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0].Columns[Age]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Age"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[Age]"
+                          usageType="readWrite" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0].Columns[RegistrationDate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="RegistrationDate"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                          usageType="readWrite" />
+                        <inputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0].Columns[LastLoginDate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LastLoginDate"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output].Columns[LastLoginDate]"
+                          usageType="readWrite" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0]"
+                      name="Output 0"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewAge]"
+                          dataType="i4"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewAge]"
+                          name="NewAge" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[AgeFlag]"
+                          dataType="bool"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[AgeFlag]"
+                          name="AgeFlag" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[RegistrationDateFlag]"
+                          dataType="bool"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[RegistrationDateFlag]"
+                          name="RegistrationDateFlag" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewRegistrationDate]"
+                          dataType="date"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewRegistrationDate]"
+                          name="NewRegistrationDate" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewLastLoginDate]"
+                          dataType="date"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[NewLastLoginDate]"
+                          name="NewLastLoginDate" />
+                        <outputColumn
+                          refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[LastLoginDateFlag]"
+                          dataType="bool"
+                          lineageId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0].Columns[LastLoginDateFlag]"
+                          name="LastLoginDateFlag" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Data Conversion Output]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Flat File Source Output]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Inputs[Input 0]"
+                  name="Flat File Source Output"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Output 0]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Output 0"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_DataCleaning"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4F5CF1B5-5E6C-4900-B0C8-D89775F30D16}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_DataCleaning"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="EXEC [dbo].[usp_DataCleaning]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_InitialLoad"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{87ED0E3E-2990-41A2-AD30-0723A550850F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_InitialLoad"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="IF (SELECT COUNT(*) FROM prod.Users) = 0&#xA;BEGIN&#xA;INSERT INTO prod.Users (UserID, FullName, Age, Email, RegistrationDate, LastLoginDate, PurchaseTotal)&#xA;VALUES&#xA;(101, 'John Doe', 30, 'johndoe@example.com', '2021-01-10', '2023-03-01', 150.00),&#xA;(102, 'Jane Smith', 25, 'janesmith@example.com', '2020-05-15', '2023-02-25', 200.00),&#xA;(103, 'Emily Johnson', 22, 'emilyjohnson@example.com', '2019-03-23', '2023-01-30', 120.50),&#xA;(104, 'Michael Brown', 35, 'michaelbrown@example.com', '2018-07-18', '2023-02-20', 300.75),&#xA;(105, 'Jessica Garcia', 28, 'jessicagarcia@example.com', '2022-08-05', '2023-02-18', 180.25),&#xA;(106, 'David Miller', 40, 'davidmiller@example.com', '2017-12-12', '2023-02-15', 220.40),&#xA;(107, 'Sarah Martinez', 33, 'sarahmartinez@example.com', '2018-11-30', '2023-02-10', 140.60),&#xA;(108, 'James Taylor', 29, 'jamestaylor@example.com', '2019-06-22', '2023-02-05', 210.00),&#xA;(109, 'Linda Anderson', 27, 'lindaanderson@example.com', '2021-04-16', '2023-01-25', 165.95),&#xA;(110, 'Robert Wilson', 31, 'robertwilson@example.com', '2020-02-20', '2023-01-20', 175.00);&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3F4A9F54-E313-49FD-B4D6-3502B35B5AE2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PackageConfig"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="Exec [dbo].[usp_Config_Package] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{63313D6C-C06B-4A7B-A2BF-016F0DB93FE8}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B9C5AD9F-E924-42D4-ACD4-6470866056CA}"
+          DTS:From="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_DataCleaning" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F9CBEF17-A61C-4A18-BA2E-13C270F45ED5}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_DataCleaning"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_InitialLoad" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{B8870699-7B64-4E97-9DEA-F5EC347040E8}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_InitialLoad"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
+          TopLeft="16.6285789460551,9.87058912544514" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          TopLeft="10.9142931344561,77.1647077162785" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_DataCleaning"
+          TopLeft="17.3428646725053,150.576473451733" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_InitialLoad"
+          TopLeft="25.2000076634545,223.541179527131" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load"
+          TopLeft="18.0571503989552,290.517651884944" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint]"
+          TopLeft="101.971436040256,51.4705891254451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.6941185908334"
+              Start="0,0"
+              End="0,18.1941185908334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1941185908334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 1]"
+          TopLeft="100.728578903481,118.764707716279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8117657354547"
+              Start="0,0"
+              End="0,24.3117657354547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3117657354547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 2]"
+          TopLeft="100.27143616798,192.176473451733">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.3647060753979"
+              Start="0,0"
+              End="0,23.8647060753979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8647060753979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 3]"
+          TopLeft="101.428579031205,265.141179527131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.3764723578123"
+              Start="0,0"
+              End="0,17.8764723578123">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8764723578123" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,387.2"
+          Size="204.8,430.4"
+          Id="Package\SQ_SSIS_HomeTask"
+          TopLeft="224.285718105277,34.1294123331156" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting"
+          TopLeft="257.857147248424,83.352942345464" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File"
+          TopLeft="260.714290154223,8.41176482385419" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion"
+          TopLeft="262.857147333573,150.341178068571" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination"
+          TopLeft="256.428575795524,228.647062030219" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Data Conversion Output]"
+          TopLeft="341.042861564549,191.941178068571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7058839616479"
+              Start="0,0"
+              End="0,29.2058839616479">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2058839616479" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Flat File Source Output]"
+          TopLeft="343.085718701324,50.0117648238542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3411775216098"
+              Start="0,0"
+              End="0,25.8411775216098">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8411775216098" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Output 0]"
+          TopLeft="342.957147290999,124.952942345464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.3882357231066"
+              Start="0,0"
+              End="0,17.8882357231066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8882357231066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl"
+          TopLeft="371,38" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup"
+          TopLeft="372,133" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[OLE DB Source Output]"
+          TopLeft="431.7,79.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.4"
+              Start="0,0"
+              End="0,45.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl"
+          TopLeft="213,284" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records"
+          TopLeft="453,284" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup Match Output]"
+          TopLeft="445.866666666667,174.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.933333333333,109.4"
+              Start="0,0"
+              End="105.933333333333,101.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.678041958042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.678041958042"
+                    Point2="0,44.678041958042"
+                    Point3="4,44.678041958042" />
+                  <mssgle:LineSegment
+                    End="101.933333333333,44.678041958042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.933333333333,44.678041958042"
+                    Point2="105.933333333333,44.678041958042"
+                    Point3="105.933333333333,48.678041958042" />
+                  <mssgle:LineSegment
+                    End="105.933333333333,101.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.77527994791664,49.678041958042,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup No Match Output]"
+          TopLeft="410.933333333333,174.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126.333333333333,109.4"
+              Start="0,0"
+              End="-126.333333333333,101.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.678041958042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.678041958042"
+                    Point2="0,44.678041958042"
+                    Point3="-4,44.678041958042" />
+                  <mssgle:LineSegment
+                    End="-122.333333333333,44.678041958042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-122.333333333333,44.678041958042"
+                    Point2="-126.333333333333,44.678041958042"
+                    Point3="-126.333333333333,48.678041958042" />
+                  <mssgle:LineSegment
+                    End="-126.333333333333,101.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.973053385417,49.678041958042,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
