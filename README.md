@@ -41,7 +41,7 @@ This project demonstrates an ETL process using SQL Server Integration Services (
 ## ETL Process and Methodologies
 
 1. **Package Configurations:**
-    - The package configurations are stored in a `package_config` table. It stores the details about the package, server, and database used.
+    - The package configurations are stored in a `package_configurations` table. It stores the details about the package, server, and database used.
 
 2. **Logging:**
     - An `audit_log` table is used to keep track of the ETL process at various stages.
@@ -77,4 +77,4 @@ This project demonstrates an ETL process using SQL Server Integration Services (
     - These error handling mechanisms ensure that any issues are promptly identified and recorded, facilitating quick resolution and maintaining the robustness of the ETL process.
 
 ## Conclusion
-This project demonstrates a comprehensive ETL process using SSIS, showcasing data integration, transformation, and incremental loading techniques.
+This project demonstrates a comprehensive ETL process using SSIS, TSQL showcasing data integration, transformation, and incremental loading techniques.
