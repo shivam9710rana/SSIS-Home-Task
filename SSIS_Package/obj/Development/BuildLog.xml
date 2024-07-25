@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS_Home_Task</Name>
-    <LastWriteTime>2024-07-23T07:48:40.9205976Z</LastWriteTime>
+    <LastWriteTime>2024-07-25T02:24:56.3990578Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>SSIS_Home_Task.dtsx</Name>
-      <LastWriteTime>2024-07-24T20:12:44.3075796Z</LastWriteTime>
+      <LastWriteTime>2024-07-25T03:57:07.5519359Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

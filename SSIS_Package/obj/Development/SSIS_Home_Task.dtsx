@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="16393"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="SSIS_Home_Task"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{703E8C8A-E0E2-4C22-86EC-B495FBBFBE1B}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{E76077B4-4DC3-4A0B-80D5-2ED6CB3F1816}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -150,10 +150,28 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{A7158A7A-05E5-4E2C-AB08-E838F60CAEC3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ProdRecordCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6214C2BA-9825-4E0F-8A14-3303FFFDE133}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="StgRecordCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{D36AE9A8-E232-481F-BCFF-D458B4BC43AB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="RecordCount">
+      DTS:ObjectName="UpdateRecordCount">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
@@ -359,6 +377,35 @@ where [refTable].[UserID] = ?</property>
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="NewRecords">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::ProdRecordCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords.Inputs[Row Count Input 1]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -787,6 +834,35 @@ where [refTable].[UserID] = ?</property>
                   </outputs>
                 </component>
                 <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="UpdatedRecords">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::UpdateRecordCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records"
                   componentClassID="Microsoft.OLEDBCommand"
                   contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -991,12 +1067,12 @@ where [refTable].[UserID] = ?</property>
               <paths>
                 <path
                   refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup Match Output]"
-                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords.Inputs[Row Count Input 1]"
                   name="Lookup Match Output"
                   startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup No Match Output]"
-                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords.Inputs[Row Count Input 1]"
                   name="Lookup No Match Output"
                   startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Outputs[Lookup No Match Output]" />
                 <path
@@ -1004,6 +1080,16 @@ where [refTable].[UserID] = ?</property>
                   endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup.Inputs[Lookup Input]"
                   name="OLE DB Source Output"
                   startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Row Count Output 1]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Row Count Output 11]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records.Inputs[OLE DB Command Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords.Outputs[Row Count Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1620,6 +1706,35 @@ where [refTable].[UserID] = ?</property>
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::StgRecordCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count.Inputs[Row Count Input 1]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -2865,7 +2980,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               <paths>
                 <path
                   refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Data Conversion Output]"
-                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count.Inputs[Row Count Input 1]"
                   name="Data Conversion Output"
                   startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -2878,6 +2993,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion.Inputs[Data Conversion Input]"
                   name="Output 0"
                   startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting.Outputs[Output 0]" />
+                <path
+                  refId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Row Count Output 1]"
+                  endId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count.Outputs[Row Count Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -2917,15 +3037,67 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_PackageCompleted"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{572a31a6-6f87-4264-b2a7-f73ea5703e17}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PackageCompleted"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO log.audit_log
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'PackageCompleted'
+ ,0 
+ ,0
+ ,''
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO log.audit_log&#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'PackageCompleted'&#xA; ,0 &#xA; ,0&#xA; ,''&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{3F4A9F54-E313-49FD-B4D6-3502B35B5AE2}"
+          DTS:DTSID="{0D11D5E1-4DA0-46AA-8BDE-6039E313D9A6}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="EST_PackageConfig"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO config.Package_Configurations 
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'SSIS-based ETL process that migrates data from a CSV file to a production SQL Server table'
+ ,'"+ @[User::Var_ServerName] +"' 
+ ,'"+ @[User::Var_DatabaseName] +"'
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO config.Package_Configurations &#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'SSIS-based ETL process that migrates data from a CSV file to a production SQL Server table'&#xA; ,'Shivam\ECE9017' &#xA; ,'KoreAssignment_Shivam_Rana'&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_PackageConfig111"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{3F4A9F54-E313-49FD-B4D6-3502B35B5AE2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PackageConfig111"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2933,24 +3105,102 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               SQLTask:SqlStatementSource="Exec [dbo].[usp_Config_Package] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_PackageStarted"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{71AEF5BB-EF6C-4F5B-86D4-28170B91836B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PackageStarted"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO log.audit_log
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'PackageStarted'
+ ,0 
+ ,0
+ ,''
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO log.audit_log&#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'PackageStarted'&#xA; ,0 &#xA; ,0&#xA; ,''&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_ProdLoadCompleted"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{83d487ed-2ebb-4d1c-8991-31e87bf0b1f3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_ProdLoadCompleted"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO log.audit_log
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'Production Load Completed'
+ ,"+(DT_WSTR,12) @[User::ProdRecordCount] +" 
+ ,"+ (DT_WSTR,12)@[User::UpdateRecordCount] +"
+ ,''
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO log.audit_log&#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'Production Load Completed'&#xA; ,0 &#xA; ,0&#xA; ,''&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SQ_SSIS_HomeTask\EST_StagingLoadCompleted"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{03a5bf45-3981-4593-ae29-174923ca0166}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_StagingLoadCompleted"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO log.audit_log
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'StagingLoad Completed'
+ ,"+ (DT_WSTR,12)@[User::StgRecordCount] +" 
+ ,0
+ ,''
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO log.audit_log&#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'StagingLoad Completed'&#xA; ,0 &#xA; ,0&#xA; ,''&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{63313D6C-C06B-4A7B-A2BF-016F0DB93FE8}"
+          DTS:DTSID="{0A5CF304-8032-4423-9908-3A2C0E580882}"
           DTS:From="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load" />
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_PackageStarted" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{B9C5AD9F-E924-42D4-ACD4-6470866056CA}"
-          DTS:From="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          DTS:DTSID="{B8A41641-62F8-462F-B3B4-3DD4E68A4B98}"
+          DTS:From="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\SQ_SSIS_HomeTask\EST_DataCleaning" />
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_ProdLoadCompleted" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
@@ -2967,9 +3217,90 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
           DTS:To="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{5DF6DB4D-0D29-43F2-BE9D-AE47C30F2CB3}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_PackageStarted"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{A97B7FCB-2B99-4FB3-AFE2-BAD1DEBAFAF1}"
+          DTS:From="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_StagingLoadCompleted" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{5DF0E997-5469-4F19-9F7E-1A42B28CEB33}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_StagingLoadCompleted"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_DataCleaning" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{C7D7FA27-2F9A-4306-8966-459EAD5B345B}"
+          DTS:From="Package\SQ_SSIS_HomeTask\EST_ProdLoadCompleted"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\SQ_SSIS_HomeTask\EST_PackageCompleted" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{B952995A-D756-4CCF-B544-4EB2EEA70800}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{FBA163E7-FE19-4921-86C9-CD77BDF1FB2F}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\EST_PackageFailureLog"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ba0f2c51-916d-4b30-b281-0fc25fafe898}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST_PackageFailureLog"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO log.audit_log
+SELECT  
+ '"+ @[System::PackageName] +"' 
+ ,'Package Failed'
+ ,0 
+ ,0
+ ,'"+replace(@[System::ErrorDescription],"'","") +"'
+ ,GETDATE()"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{A29F753A-B649-4C92-9562-53777CFF7A46}"
+              SQLTask:SqlStatementSource="INSERT INTO log.audit_log&#xA;SELECT  &#xA; 'SSIS_Home_Task' &#xA; ,'Package Failed'&#xA; ,0 &#xA; ,0&#xA; ,''&#xA; ,GETDATE()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -2981,85 +3312,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
-          TopLeft="16.6285789460551,9.87058912544514" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
-          TopLeft="10.9142931344561,77.1647077162785" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\SQ_SSIS_HomeTask\EST_DataCleaning"
-          TopLeft="17.3428646725053,150.576473451733" />
-        <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\SQ_SSIS_HomeTask\EST_InitialLoad"
-          TopLeft="25.2000076634545,223.541179527131" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,41.6"
           Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load"
-          TopLeft="18.0571503989552,290.517651884944" />
-        <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint]"
-          TopLeft="101.971436040256,51.4705891254451">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.6941185908334"
-              Start="0,0"
-              End="0,18.1941185908334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1941185908334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 1]"
-          TopLeft="100.728578903481,118.764707716279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.8117657354547"
-              Start="0,0"
-              End="0,24.3117657354547">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.3117657354547" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="124.19047782859,482.968634976153" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load"
+          TopLeft="109.190477573142,171.478434529189" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_DataCleaning"
+          TopLeft="122.04762064924,329.772554396263" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_InitialLoad"
+          TopLeft="125.85714452364,407.070593865767" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_PackageConfig111"
+          TopLeft="31.5714286322494,9.87058912544514" />
         <EdgeLayout
           Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 2]"
-          TopLeft="100.27143616798,192.176473451733">
+          TopLeft="202.95238258644,371.372554396263">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.3647060753979"
+              EndConnector="0,35.6980394695045"
               Start="0,0"
-              End="0,23.8647060753979">
+              End="0,28.1980394695045">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.8647060753979" />
+                    End="0,28.1980394695045" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3070,18 +3357,182 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 3]"
-          TopLeft="101.428579031205,265.141179527131">
+          TopLeft="204.823811176115,448.670593865767">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.3764723578123"
+              EndConnector="0,34.2980411103858"
               Start="0,0"
-              End="0,17.8764723578123">
+              End="0,26.7980411103858">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.8764723578123" />
+                    End="0,26.7980411103858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_PackageConfig"
+          TopLeft="258.085714784447,16.4588248485512" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_PackageStarted"
+          TopLeft="119.333331346512,96.2313745044919" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint]"
+          TopLeft="343.685714784447,58.0588248485512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136.752383437935,38.1725496559407"
+              Start="0,0"
+              End="-136.752383437935,30.6725496559407">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0862748279703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0862748279703"
+                    Point2="0,19.0862748279704"
+                    Point3="-4,19.0862748279704" />
+                  <mssgle:LineSegment
+                    End="-132.752383437935,19.0862748279704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132.752383437935,19.0862748279704"
+                    Point2="-136.752383437935,19.0862748279704"
+                    Point3="-136.752383437935,23.0862748279704" />
+                  <mssgle:LineSegment
+                    End="-136.752383437935,30.6725496559407" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_PackageCompleted"
+          TopLeft="125.999998126711,632.403929630036" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 4]"
+          TopLeft="203.461904459827,137.831374504492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.6470600246971"
+              Start="0,0"
+              End="0,26.1470600246971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1470600246971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_StagingLoadCompleted"
+          TopLeft="100.999997700963,254.525494371566" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 5]"
+          TopLeft="203.095237637053,213.078434529189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.4470598423771"
+              Start="0,0"
+              End="0,33.9470598423771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9470598423771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 6]"
+          TopLeft="205.323809175102,296.125494371566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.6470600246969"
+              Start="0,0"
+              End="0,26.1470600246969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1470600246969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\EST_ProdLoadCompleted"
+          TopLeft="115.580958041366,561.172557495705" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 1]"
+          TopLeft="211.085717934978,524.568634976153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.6039225195518"
+              Start="0,0"
+              End="0,29.1039225195518">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1039225195518" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask.PrecedenceConstraints[Constraint 7]"
+          TopLeft="217.790478084039,602.772557495705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6313721343311"
+              Start="0,0"
+              End="0,22.1313721343311">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1313721343311" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3093,22 +3544,245 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,387.2"
-          Size="204.8,430.4"
+          PanelSize="494.4,728.8"
+          Size="494.4,772"
           Id="Package\SQ_SSIS_HomeTask"
-          TopLeft="224.285718105277,34.1294123331156" />
+          TopLeft="217.142860840778,17.3058826854073" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records"
+          TopLeft="453,284" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl"
+          TopLeft="371,38" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl"
+          TopLeft="248.000000596046,283.235294106922" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup"
+          TopLeft="372,133" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[OLE DB Source Output]"
+          TopLeft="431.7,79.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.4"
+              Start="0,0"
+              End="0,45.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\NewRecords"
+          TopLeft="252.857147163274,210.294120596355" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\UpdatedRecords"
+          TopLeft="467.142865098253,207.305885237889" />
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup No Match Output]"
+          TopLeft="410.933333333333,174.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-89.676186170059,35.6941205963545"
+              Start="0,0"
+              End="-89.676186170059,28.1941205963545">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5771793204693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5771793204693"
+                    Point2="0,14.5771793204693"
+                    Point3="-4,14.5771793204693" />
+                  <mssgle:LineSegment
+                    End="-85.676186170059,14.5771793204693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-85.676186170059,14.5771793204693"
+                    Point2="-89.676186170059,14.5771793204693"
+                    Point3="-89.676186170059,18.5771793204693" />
+                  <mssgle:LineSegment
+                    End="-89.676186170059,28.1941205963545" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.644479803779,19.5771793204693,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Row Count Output 1]"
+          TopLeft="320.42857387966,251.894120596355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.3411735105678"
+              Start="0,0"
+              End="0,23.8411735105678">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8411735105678" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup Match Output]"
+          TopLeft="428.4,174.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.342865098253,32.7058852378886"
+              Start="0,0"
+              End="116.342865098253,25.2058852378886">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3529426189443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3529426189443"
+                    Point2="0,16.3529426189443"
+                    Point3="4,16.3529426189443" />
+                  <mssgle:LineSegment
+                    End="112.342865098253,16.3529426189443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="112.342865098253,16.3529426189443"
+                    Point2="116.342865098253,16.3529426189443"
+                    Point3="116.342865098253,20.3529426189443" />
+                  <mssgle:LineSegment
+                    End="116.342865098253,25.2058852378886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.98004583037639,21.3529426189443,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Row Count Output 11]"
+          TopLeft="548.271432549126,248.905885237889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.0941147621114"
+              Start="0,0"
+              End="0,27.5941147621114">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5941147621114" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="175.2,41.6"
           Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\SC_Data_Formatting"
           TopLeft="257.857147248424,83.352942345464" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination"
+          TopLeft="257.428575795524,241.647062030219" />
         <NodeLayout
           Size="160,41.6"
           Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data_Source_File"
@@ -3117,24 +3791,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="155.2,41.6"
           Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Data Conversion"
           TopLeft="262.857147333573,150.341178068571" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\OLE DB Destination"
-          TopLeft="256.428575795524,228.647062030219" />
         <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Data Conversion Output]"
-          TopLeft="341.042861564549,191.941178068571">
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Output 0]"
+          TopLeft="342.957147290999,124.952942345464">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.7058839616479"
+              EndConnector="0,25.3882357231066"
               Start="0,0"
-              End="0,29.2058839616479">
+              End="0,17.8882357231066">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.2058839616479" />
+                    End="0,17.8882357231066" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3165,20 +3835,70 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load\Row Count"
+          TopLeft="488,206" />
         <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Output 0]"
-          TopLeft="342.957147290999,124.952942345464">
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Data Conversion Output]"
+          TopLeft="418.057147333573,171.141178068571">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.3882357231066"
+              EndConnector="69.9428526664271,55.658821931429"
               Start="0,0"
-              End="0,17.8882357231066">
+              End="62.4428526664271,55.658821931429">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.8882357231066" />
+                    End="30.9714263332136,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.9714263332136,0"
+                    Point2="34.9714263332136,0"
+                    Point3="34.9714263332136,4" />
+                  <mssgle:LineSegment
+                    End="34.9714263332136,51.658821931429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.9714263332136,51.658821931429"
+                    Point2="34.9714263332136,55.658821931429"
+                    Point3="38.9714263332136,55.658821931429" />
+                  <mssgle:LineSegment
+                    End="62.4428526664271,55.658821931429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SQ_SSIS_HomeTask\DFT_StagingTbl_Load.Paths[Row Count Output 1]"
+          TopLeft="488,232.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.1714242044761,30.047062030219"
+              Start="0,0"
+              End="-52.6714242044761,30.047062030219">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-21.4057124418899,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.4057124418899,0"
+                    Point2="-25.4057124418899,0"
+                    Point3="-25.4057124418899,4" />
+                  <mssgle:LineSegment
+                    End="-25.4057124418899,26.047062030219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.4057124418899,26.047062030219"
+                    Point2="-25.4057124418899,30.047062030219"
+                    Point3="-29.4057124418899,30.047062030219" />
+                  <mssgle:LineSegment
+                    End="-52.6714242044761,30.047062030219" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3203,172 +3923,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load">
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="128,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl"
-          TopLeft="371,38" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup"
-          TopLeft="372,133" />
-        <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[OLE DB Source Output]"
-          TopLeft="431.7,79.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.4"
-              Start="0,0"
-              End="0,45.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl"
-          TopLeft="213,284" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Updating existing records"
-          TopLeft="453,284" />
-        <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup Match Output]"
-          TopLeft="445.866666666667,174.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105.933333333333,109.4"
-              Start="0,0"
-              End="105.933333333333,101.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.678041958042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.678041958042"
-                    Point2="0,44.678041958042"
-                    Point3="4,44.678041958042" />
-                  <mssgle:LineSegment
-                    End="101.933333333333,44.678041958042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="101.933333333333,44.678041958042"
-                    Point2="105.933333333333,44.678041958042"
-                    Point3="105.933333333333,48.678041958042" />
-                  <mssgle:LineSegment
-                    End="105.933333333333,101.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.77527994791664,49.678041958042,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load.Paths[Lookup No Match Output]"
-          TopLeft="410.933333333333,174.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-126.333333333333,109.4"
-              Start="0,0"
-              End="-126.333333333333,101.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.678041958042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.678041958042"
-                    Point2="0,44.678041958042"
-                    Point3="-4,44.678041958042" />
-                  <mssgle:LineSegment
-                    End="-122.333333333333,44.678041958042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-122.333333333333,44.678041958042"
-                    Point2="-126.333333333333,44.678041958042"
-                    Point3="-126.333333333333,48.678041958042" />
-                  <mssgle:LineSegment
-                    End="-126.333333333333,101.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-118.973053385417,49.678041958042,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="189.6,41.6"
+          Id="Package.EventHandlers[OnError]\EST_PackageFailureLog"
+          TopLeft="372,96" />
       </GraphLayout>
     </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\StagingTbl">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SQ_SSIS_HomeTask\DFT_ProdTbl_Load\ProductionTbl">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
