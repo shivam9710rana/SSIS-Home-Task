@@ -173,13 +173,13 @@ BEGIN
                    WHEN Age < 0 THEN 'Age cannot be negative'
 				   WHEN (Email NOT LIKE '%_@__%.%' OR Email LIKE '%[^a-zA-Z0-9@._-]%') THEN 'Invalid Email Format'
                    
-                   WHEN RegistrationDate ='2024-01-01' THEN 'Future Date'
-                   WHEN RegistrationDate ='1920-01-01' THEN 'Too Old Date'
-				   WHEN RegistrationDate ='1899-12-30' THEN 'Invalid Date Format'
+                   WHEN RegistrationDate > GETDATE() THEN   'RegistrationDate issue: format, future, too old'
+                   WHEN RegistrationDate <'2000-01-01' THEN 'RegistrationDate issue: format, future, too old'
+				   WHEN RegistrationDate ='1900-01-01' THEN 'RegistrationDate issue: format, future, too old'
 
-				   WHEN LastLoginDate ='2024-01-01' THEN 'Future Date'
-                   WHEN LastLoginDate='1920-01-01' THEN 'Too Old Date'
-				   WHEN LastLoginDate ='1899-12-30' THEN 'Invalid Date Format'
+				   WHEN LastLoginDate > GETDATE()  THEN  'LastLoginDate issue: format, future, too old'
+                   WHEN LastLoginDate <'2000-01-01' THEN 'LastLoginDate issue: format, future, too old'
+				   WHEN LastLoginDate ='1900-01-01' THEN 'LastLoginDate issue: format, future, too old'
 
 				   WHEN PurchaseTotal>1000 THEN 'Value is too large'
                    ELSE 'Unknown Reason'
@@ -188,16 +188,20 @@ BEGIN
         WHERE 
             (UserID IS NULL OR FullName IS NULL)
             OR Age < 0
-			OR (Email NOT LIKE '%_@__%.%' OR Email LIKE '%[^a-zA-Z0-9@._-]%')
-            OR RegistrationDate in('2024-01-01','1920-01-01','1899-12-30')
-			OR LastLoginDate in('2024-01-01','1920-01-01','1899-12-30')
+	    OR (Email NOT LIKE '%_@__%.%' OR Email LIKE '%[^a-zA-Z0-9@._-]%')
+            OR RegistrationDate > GETDATE() 
+			OR RegistrationDate <'2000-01-01'
+			OR RegistrationDate ='1900-01-01'
+			OR LastLoginDate > GETDATE()  
+			OR LastLoginDate <'2000-01-01'
+			OR LastLoginDate ='1900-01-01'
 			OR PurchaseTotal>1000;
 			
 
 		--deleting dulicate records from the staging tbl
 		WITH Duplicate_Record_CTE as( SELECT *,
-									  ROW_NUMBER() OVER (PARTITION BY USERID, FULLNAME ORDER BY LastLoginDate desc) as rn
-									  FROM STG.USERS )
+					      ROW_NUMBER() OVER (PARTITION BY USERID, FULLNAME ORDER BY LastLoginDate desc) as rn
+					      FROM STG.USERS )
 		DELETE from Duplicate_Record_CTE where rn>1;
 
 
@@ -205,11 +209,15 @@ BEGIN
 		DELETE FROM STG.USERS
         WHERE 
         (UserID IS NULL OR FullName IS NULL)
-        OR Age < 0
-		OR (Email NOT LIKE '%_@__%.%' OR Email LIKE '%[^a-zA-Z0-9@._-]%')
-        OR RegistrationDate in('2024-01-01','1920-01-01','1899-12-30')
-		OR LastLoginDate in('2024-01-01','1920-01-01','1899-12-30')
-		OR PurchaseTotal>1000;
+            OR Age < 0
+	    OR (Email NOT LIKE '%_@__%.%' OR Email LIKE '%[^a-zA-Z0-9@._-]%')
+            OR RegistrationDate > GETDATE() 
+			OR RegistrationDate <'2000-01-01'
+			OR RegistrationDate ='1900-01-01'
+			OR LastLoginDate > GETDATE()  
+			OR LastLoginDate <'2000-01-01'
+			OR LastLoginDate ='1900-01-01'
+			OR PurchaseTotal>1000;
 
 		-- Update PurchaseTotal to handle empty or null values and round to 2 decimal places
         UPDATE STG.USERS
